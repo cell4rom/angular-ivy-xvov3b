@@ -1,0 +1,57 @@
+<a href="https://www.npmjs.com/package/@cell4rom/front-line" class="btn btn-info btn-lg active" role="button"
+	aria-pressed="true">@cell4rom</a>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			Client Pagination :
+			<![CDATA[<rs-pagination [items]="list" [currentSize]="size" (changePage)="onChangePage($event)"></rs-pagination>]]>
+			<div style="text-align:center">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">last_name</th>
+							<th scope="col">first_name</th>
+							<th scope="col">Email</th>
+						</tr>
+					</thead>
+					<tbody *ngFor='let elem of pageOfItems ; let i = index'>
+						<tr>
+							<th scope="row">{{i}}</th>
+							<td>{{elem.last_name}}</td>
+							<td>{{elem.first_name}}</td>
+							<td>{{elem.email}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<rs-pagination [items]="list" [currentSize]="size" (changePage)="onChangePage($event)"></rs-pagination>
+		</div>
+
+		<div class="col-md-6">
+			Server Pagination : <br/>
+			<![CDATA[<rs-pagination-api [pagesNumber]="pagesNumber" [page]="page" [currentSize]="size_api"></rs-pagination-api>]]>
+			<div style="text-align:center">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">last_name</th>
+							<th scope="col">first_name</th>
+							<th scope="col">Email</th>
+						</tr>
+					</thead>
+					<tbody *ngFor='let elem of list_api ; let i = index'>
+						<tr>
+							<th scope="row">{{i}}</th>
+							<td>{{elem.last_name}}</td>
+							<td>{{elem.first_name}}</td>
+							<td>{{elem.email}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<rs-pagination-api [pagesNumber]="pagesNumber" [page]="page" [currentSize]="size_api"></rs-pagination-api>
+		</div>
+	</div>
